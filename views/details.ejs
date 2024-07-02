@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Reset some default browser styles */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for the overall body */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        /* Container for flex alignment */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Style for the main content area */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for the blog title */
+        .container h1 {
+            font-size: 26px;
+            color: #34495e;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 5px;
+        }
+
+        /* Style for the blog body */
+        .container p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 15px 0 25px;
+            line-height: 1.8;
+        }
+
+        /* Style for the delete link */
+        .delete {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 15px 0;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .delete:hover {
+            background-color: #c0392b;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <div class="container">
+        <h1><%= blog.title %></h1>
+        <p><%= blog.body %></p>
+        <a class="delete" data-doc="<%= blog._id %>">Delete</a>
+    </div>
+    <%- include('partials/footer') %>
+    <script>
+        document.querySelector('.delete').addEventListener('click', function(e) {
+            const endpoint = `/blogs/${this.dataset.doc}`;
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.redirect) {
+                      window.location.href = data.redirect;
+                  }
+              })
+              .catch(err => console.log(err));
+        });
+    </script>
+</body>
+</html>

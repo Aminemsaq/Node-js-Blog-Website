@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Include head partial -->
+    <%- include('./partials/head.ejs') %>
+
+    <title>Explore Our Latest Blog Posts - Blog Ninja</title>
+
+    <style>
+      /* Reset some default browser styles */
+      body,
+      h1,
+      h2,
+      h3,
+      p{
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style for the overall body */
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f7f9fc;
+        color: #333;
+      }
+
+      /* Container for flex alignment */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Style for the main content area */
+      .content {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Style for the blog titles */
+      .title {
+        font-size: 26px;
+        color: #34495e;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #1abc9c;
+        padding-bottom: 5px;
+      }
+
+      /* Style for the blog snippets */
+      .snippet {
+        font-size: 18px;
+        color: #7f8c8d;
+        margin: 15px 0 25px;
+        line-height: 1.8;
+      }
+
+      /* Card styling */
+      .blog-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .blog-card h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .blog-card p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include navigation bar -->
+    <%- include('./partials/nav.ejs') %>
+    <h2 class="container content">
+      Explore Our Latest Blog Posts - Blog Ninja
+    </h2>
+    <div class="container">
+      <div class="content">
+        <% if(blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+        <div class="blog-card">
+          <a  href="/blogs/<%=blog._id%>" style="text-decoration:none;">
+            <h3 class="title"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.snippet %></p>
+          </a>
+        </div>
+        <% }) %> 
+        <% } else { %>
+        <p>There are no blogs to display...</p>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Include footer -->
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

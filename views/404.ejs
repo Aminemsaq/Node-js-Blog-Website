@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for the overall body */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f9fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the 404 content */
+        .not-found {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for the title */
+        .not-found h2 {
+            font-size: 36px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the paragraph */
+        .not-found p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+   
+    <div class="not-found content">
+        <h2>OOPS, Page not found</h2>
+        <p>Sorry, but the page you are looking for does not exist, has been removed, or is temporarily unavailable.</p>
+    </div>
+</body>
+</html>

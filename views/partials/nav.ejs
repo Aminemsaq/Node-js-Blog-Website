@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        /* Style for the navigation bar */
+        nav {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        nav .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav .site-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        nav .site-title a {
+            text-decoration: none;
+            color: #ecf0f1;
+        }
+
+        nav .site-title h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav .site-title p {
+            margin: 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="site-title">
+                <a href="/">
+                    <h1>Blog Ninja</h1>
+                </a>
+                <p>A Net Ninja site</p>
+            </div>
+            <ul>
+                <li><a href="/blogs">Blogs</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blogs/create">New Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
